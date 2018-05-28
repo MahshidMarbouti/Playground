@@ -83,13 +83,12 @@ def main():
 
     print(Employee.is_workday(datetime.date(2018, 10, 6)))
 
-    Dev_1 = Developer("ron", "wisely", 70000, "python")
-    print(Dev_1.raise_amount)
-    print(Dev_1.prog_lang)
+    dev_1 = Developer("ron", "wisely", 70000, "python")
+    print(dev_1.raise_amount)
+    print(dev_1.prog_lang)
 
-    mng_1 = Manager("albos", "dombledor", 140000, [emp, Dev_1])
+    mng_1 = Manager("albos", "dombledor", 140000, [emp, dev_1])
 
     mng_1.print_employees()
-
-
+ 
 main()
