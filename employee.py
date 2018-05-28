@@ -1,3 +1,4 @@
+import datetime
 class Employee:
     num_of_emp = 0 #classVariables 
     raise_amount = 1.04
@@ -23,6 +24,14 @@ class Employee:
         first, last, pay = string.split('-')
         return cls(first, last, int(pay))
 
+    @staticmethod
+    def is_workday(day):
+        if day.weekday()==5 or day.weekday()==6:
+            return False
+        return True
+
+
+
 def main():
     print(Employee.num_of_emp)
     emp = Employee("harry", "potter", 90000)
@@ -41,5 +50,7 @@ def main():
     string = "hermoine-grenger-80000"
     emp_2= Employee.set_obj_from_string(string)
     print(emp_2.fname)
+
+    print(Employee.is_workday(datetime.date(2018, 10, 6)))
 
 main()
