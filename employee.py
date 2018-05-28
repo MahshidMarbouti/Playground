@@ -30,7 +30,13 @@ class Employee:
             return False
         return True
 
-
+class Developer(Employee): #subclass of based class Employee
+    raise_amount = 1.1
+    def __init__(self,  fname, lname, salary, prog_lang):
+        super().__init__(fname, lname, salary)
+        #alternate way line below
+        #Employee.__init__(self, fname, lname, salary)
+        self.prog_lang = prog_lang
 
 def main():
     print(Employee.num_of_emp)
@@ -52,5 +58,9 @@ def main():
     print(emp_2.fname)
 
     print(Employee.is_workday(datetime.date(2018, 10, 6)))
+
+    Dev_1 = Developer("ron", "wisely", 70000, "python")
+    print(Dev_1.raise_amount)
+    print(Dev_1.prog_lang)
 
 main()
