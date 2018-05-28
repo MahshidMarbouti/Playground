@@ -38,6 +38,30 @@ class Developer(Employee): #subclass of based class Employee
         #Employee.__init__(self, fname, lname, salary)
         self.prog_lang = prog_lang
 
+class Manager(Employee):
+    def __init__(self, fname, lname, salary, employees = None):
+        super().__init__(fname, lname, salary)
+        if employees==None:
+            self.employees = []
+        else:
+            self.employees = employees
+
+    def add_employee(self, employee):
+        if employee not in self.employees:
+            self.employees.append(employee)
+        else:
+            print("employee already exists")
+
+    def remove_employee(self, employee):
+        if employee in self.employees:
+            self.employees.remove()
+        else:
+            print("employee does not exist")
+
+    def print_employees (self):
+        for employee in self.employees:
+            print(employee.fname)
+
 def main():
     print(Employee.num_of_emp)
     emp = Employee("harry", "potter", 90000)
@@ -62,5 +86,10 @@ def main():
     Dev_1 = Developer("ron", "wisely", 70000, "python")
     print(Dev_1.raise_amount)
     print(Dev_1.prog_lang)
+
+    mng_1 = Manager("albos", "dombledor", 140000, [emp, Dev_1])
+
+    mng_1.print_employees()
+
 
 main()
