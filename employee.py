@@ -30,6 +30,12 @@ class Employee:
             return False
         return True
 
+    #dunder methods
+    def __str__(self):
+        return '{}'.format(self.email)
+
+    def __repr(self):
+        return 'name: {}, lastname: {}, email {} '.format(self.fname, self.lname, self.email)
 class Developer(Employee): #subclass of based class Employee
     raise_amount = 1.1
     def __init__(self,  fname, lname, salary, prog_lang):
@@ -65,6 +71,7 @@ class Manager(Employee):
 def main():
     print(Employee.num_of_emp)
     emp = Employee("harry", "potter", 90000)
+    print(str(emp))
     print(emp.email)
     print(emp.salary)
     emp.apply_raise()
@@ -90,5 +97,7 @@ def main():
     mng_1 = Manager("albos", "dombledor", 140000, [emp, dev_1])
 
     mng_1.print_employees()
- 
+    print(emp)
+    print(dev_1)
+    print(mng_1)
 main()
