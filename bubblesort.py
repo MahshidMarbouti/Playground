@@ -1,4 +1,4 @@
-def bubble_sort(input):
+def sort(input):
     size = len(input)
     for j in range(size):
         for i in range(size-j-1):
