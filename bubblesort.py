@@ -6,4 +6,4 @@ def sort(input):
                 input[i], input[i+1]= input[i+1], input[i]
     return input
                 
-print(bubble_sort([9, 10, 4, 8, 1]))
+print(sort([9, 10, 4, 8, 1]))
