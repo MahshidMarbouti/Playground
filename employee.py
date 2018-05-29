@@ -7,10 +7,14 @@ class Employee:
         self.fname= fname    #instance variables
         self.lname = lname
         self.salary = salary
-        self.email =fname+'.'+ lname + '@company.com'
 
         Employee.num_of_emp +=1
 
+    @property  # define a method like it's an attribute
+    def email(self):
+        return self.fname+'.'+ self.lname + '@company.com'
+     
+        
     def apply_raise(self):
          # we could use Employee.raise_amount but maybe in the future we wanted to change the raise vaule for a specific employee
          self.salary = int(self.salary * self.raise_amount)
@@ -100,4 +104,5 @@ def main():
     print(emp)
     print(dev_1)
     print(mng_1)
+   
 main()
