@@ -10,10 +10,13 @@ class file_reader():
         self.filename = filename
 
     def parse_file(self):
-        os.chdir("/Users/Mahshid/Playground/cisco/fake-data")
-        result = []
-        for line in open(self.filename, 'r'):
-            result.append(json.loads(line))
+        try:
+            os.chdir("/Users/Mahshid/Playground/cisco/fake-data")
+            result = []
+            for line in open(self.filename, 'r'):
+                result.append(json.loads(line))
+        except OSError as err:
+            print("Invalid file")   
         return result
 
 
@@ -36,5 +39,7 @@ class path_extractor():
 
     def find_most_k_frequent_path(self, k):
         sorted_dictionary_by_value = sorted(self.dictionary.items(), key=operator.itemgetter(1))
+        top= {}
         for i in range(1,k+1):
-            print(sorted_dictionary_by_value[-i])
+            top[i]= sorted_dictionary_by_value[-i]
+        return top
