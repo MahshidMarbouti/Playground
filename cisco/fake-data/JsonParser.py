@@ -25,13 +25,16 @@ class path_extractor():
     def find_path_field(self):
         for line in self.json_elements:
             path=line["ph"]
-            if path[1]  not in  self.dictionary.keys():
-                    self.dictionary[path]= 1
-            else:
-                self.dictionary[path]+=1
+            path = path.split("/") 
+            for token in path:
+                if token !="": 
+                    if token not in  self.dictionary.keys():
+                            self.dictionary[token]= 1
+                    else:
+                        self.dictionary[token]+= 1
         return self.dictionary
 
     def find_most_k_frequent_path(self, k):
-        sorted_dictionary = sorted(self.dictionary.items(), key=operator.itemgetter(1))
-        for i in range(k):
-            print(sorted_dictionary[i])  
+        sorted_dictionary_by_value = sorted(self.dictionary.items(), key=operator.itemgetter(1))
+        for i in range(1,k+1):
+            print(sorted_dictionary_by_value[-i])
