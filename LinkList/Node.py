@@ -15,16 +15,26 @@ class link_list():
         else:
             node.next = self.head
             self.head = node
-    def remove (self):
+
+    def remove_from_head (self):
         if not (self.is_empty()):
             self.head = self.head.next
-            
+
+    def add_to_tail(self,node):
+        pass
+
+    def remove_from_last(self, node):
+        pass    
+
     def traverse(self):
         pointer = self.head
         while  pointer != None:
             print(pointer.value, end=" ")
             pointer = pointer.next
         print()
+
+    def get_enumerator(self):
+        pass
     def is_empty(self):
         if self.head == None and self.tail==None:
             return True
